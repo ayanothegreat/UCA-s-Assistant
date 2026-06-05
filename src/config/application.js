@@ -7,11 +7,6 @@ import { pgConfig } from "./postgres.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
-
-
-
 const appConfig = {
   paths: {
     root: path.join(__dirname, "../.."),
@@ -23,24 +18,20 @@ const appConfig = {
     handlers: path.join(__dirname, "../handlers"),
     interactions: path.join(__dirname, "../interactions"),
   },
-
   bot: {
     ...botConfig,
     token: process.env.DISCORD_TOKEN || process.env.TOKEN,
     clientId: process.env.CLIENT_ID,
     guildId: process.env.GUILD_ID,
-
     shop: {
       ...botConfig.shop,
       ...shop,
     },
   },
-
   // PostgreSQL configuration - Primary production database
   postgresql: {
     ...pgConfig,
   },
-
   logging: {
     level: process.env.LOG_LEVEL || "info",
     file: {
@@ -61,7 +52,6 @@ const appConfig = {
       environment: process.env.NODE_ENV || "development",
     },
   },
-
   api: {
     port: process.env.PORT || 3000,
     cors: {
@@ -74,43 +64,17 @@ const appConfig = {
       max: 100,
     },
   },
-
   shop,
 
-  
-
-
-
-
   features: {
-    
-    economy: true,                  
-    leveling: true,                 
-    moderation: true,               
-    logging: true,                  
-    welcome: true,                  
-
-    
-    tickets: true,                  
-    giveaways: true,                
-    birthday: true,                 
-    counter: true,                  
-
-    
-    verification: true,             
-    reactionRoles: true,            
-    joinToCreate: true,             
-
-    
-    voice: true,                    
-    search: true,                   
-    tools: true,                    
-    utility: true,                  
-    community: true,                
-    fun: true,                      
-
-    
-    music: false,                   
+    economy: true,
+    leveling: true,
+    tickets: true,
+    giveaways: true,
+    search: true,
+    fun: true,
+    community: true,
+    music: false,
   },
 
   env: process.env.NODE_ENV || "development",
@@ -119,5 +83,4 @@ const appConfig = {
 };
 
 Object.freeze(appConfig);
-
 export default appConfig;
